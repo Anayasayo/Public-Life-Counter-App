@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install 3DPG Life Counter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #141414; --card: #1a1a1a; --surface: #202020; --border: #2e2e2e;
+    --ink: #f5f3ef; --muted: #a8a29a; --accent: #d69a3d; --accent-ink: #14110a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 'IBM Plex Sans', system-ui, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 32px 16px 64px; }
+  img.icon { display: block; width: 96px; height: 96px; border-radius: 22px; margin: 0 auto 16px; }
+  .kicker { color: var(--accent); font-weight: 700; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; text-align: center; margin: 0; }
+  h1, h2 { font-family: 'Big Shoulders Display', sans-serif; text-transform: uppercase; line-height: 1.05; }
+  h1 { font-size: 44px; font-weight: 900; text-align: center; margin: 4px 0 8px; }
+  h2 { font-size: 30px; font-weight: 800; margin: 0 0 4px; }
+  .lede { color: var(--muted); text-align: center; margin: 0 0 28px; }
+  .tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+  .tabs button { flex: 1; padding: 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--ink); font: 700 15px 'IBM Plex Sans', sans-serif; cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  section.card { background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 20px; }
+  section.card[hidden] { display: none; }
+  .note { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+  ol { padding-left: 22px; margin: 0; }
+  li { margin-bottom: 14px; }
+  li strong { color: var(--ink); }
+  h3 { color: var(--accent); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin: 24px 0 10px; }
+  a { color: var(--accent); }
+  .btn { display: block; text-align: center; text-decoration: none; padding: 16px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font: 800 22px 'Big Shoulders Display', sans-serif; letter-spacing: 1.5px; text-transform: uppercase; margin: 8px 0; border: 0; width: 100%; cursor: pointer; }
+  .copy { display: flex; gap: 8px; margin: 8px 0; }
+  .copy code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px; font-size: 13px; }
+  .copy button { flex: none; padding: 0 16px; border-radius: 8px; border: 0; background: var(--accent); color: var(--accent-ink); font-weight: 700; cursor: pointer; }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 32px; }
+</style>
+</head>
+<body>
+<main>
+  <img class="icon" id="icon" alt="">
+  <p class="kicker">3D Printed Games</p>
+  <h1>Life Counter</h1>
+  <p class="lede">Free Magic: The Gathering life counter. Works offline, with no account or ads.</p>
+
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tab-ios" aria-selected="true" aria-controls="ios">iPhone / iPad</button>
+    <button role="tab" id="tab-android" aria-selected="false" aria-controls="android">Android / Fire</button>
+  </div>
+
+  <section class="card" id="ios" role="tabpanel">
+    <h2>iPhone &amp; iPad</h2>
+    <p class="note">Apple only allows App Store apps to install with one tap. This app is free and off the store, so it installs through <strong>SideStore</strong>, a free app that signs it with your own Apple ID. You set it up once on a computer (about 15 minutes). After that, installs and updates happen on the phone.</p>
+
+    <h3>One-time setup</h3>
+    <ol>
+      <li>On the iPhone, install <strong>LocalDevVPN</strong> from the App Store, open it and allow the VPN.</li>
+      <li>On a Mac or Windows PC, download <strong>iloader</strong> from the <a href="https://docs.sidestore.io/docs/installation/prerequisites" target="_blank" rel="noopener">SideStore setup guide</a>.</li>
+      <li>Plug the iPhone in with a cable, open iloader, sign in with any Apple ID, pick your phone and choose <strong>Install SideStore (Stable)</strong>.</li>
+      <li>On the iPhone: <strong>Settings → General → VPN &amp; Device Management</strong>, tap your Apple ID under Developer App and tap <strong>Trust</strong>.</li>
+      <li><strong>Settings → Privacy &amp; Security → Developer Mode</strong>: turn it on. The phone restarts.</li>
+      <li>Connect LocalDevVPN, open SideStore and sign in with the same Apple ID.</li>
+    </ol>
+    <p class="note">Stuck? The <a href="https://docs.sidestore.io/docs/installation/install" target="_blank" rel="noopener">full SideStore install guide</a> has screenshots for each iOS version.</p>
+
+    <h3>Install the Life Counter</h3>
+    <ol>
+      <li>Copy this link:
+        <div class="copy"><code id="source-url"></code><button type="button" id="copy-btn">Copy</button></div>
+      </li>
+      <li>In SideStore, open <strong>Sources</strong>, tap <strong>+</strong>, paste the link and add it.</li>
+      <li>Find <strong>3DPG Life Counter</strong> and tap <strong>Free</strong>. It lands on your home screen.</li>
+    </ol>
+
+    <h3>Keeping it working</h3>
+    <p class="note">Apps signed with a free Apple ID last 7 days. SideStore renews it in the background when LocalDevVPN is on and you're on Wi-Fi. You can also open SideStore → My Apps and tap the days counter. Your games and settings are kept. Updates show up in SideStore too.</p>
+  </section>
+
+  <section class="card" id="android" role="tabpanel" hidden>
+    <h2>Android &amp; Fire tablets</h2>
+    <a class="btn" id="apk-link">Download the app</a>
+    <ol style="margin-top:16px">
+      <li>Tap <strong>Download the app</strong> on the phone or tablet.</li>
+      <li>Open the downloaded file. If asked, allow your browser to <strong>install unknown apps</strong> (Fire tablets: Settings → Security &amp; Privacy → Apps from Unknown Sources).</li>
+      <li>Tap <strong>Install</strong>. To update, download and install the new version over the old one. Your games are kept.</li>
+    </ol>
+  </section>
+
+  <footer>Made in Nebraska by <a href="https://3dprintedgames.store">3dprintedgames.store</a></footer>
+</main>
+<script>
+  // The public GitHub repo the release script publishes to.
+  const REPO = 'Anayasayo/Public-Life-Counter-App';
+  const latest = (file) => `https://github.com/${REPO}/releases/latest/download/${file}`;
+
+  document.getElementById('icon').src = latest('icon.png');
+  document.getElementById('source-url').textContent = latest('source.json');
+  document.getElementById('apk-link').href = latest('3DPG-Life-Counter.apk');
+
+  const copyBtn = document.getElementById('copy-btn');
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(latest('source.json'));
+      copyBtn.textContent = 'Copied';
+    } catch {
+      getSelection().selectAllChildren(document.getElementById('source-url'));
+      copyBtn.textContent = 'Select';
+    }
+    setTimeout(() => (copyBtn.textContent = 'Copy'), 2000);
+  });
+
+  // Open the right tab for the visitor's device.
+  const show = (id) => {
+    for (const t of ['ios', 'android']) {
+      document.getElementById(t).hidden = t !== id;
+      document.getElementById(`tab-${t}`).setAttribute('aria-selected', String(t === id));
+    }
+  };
+  document.getElementById('tab-ios').onclick = () => show('ios');
+  document.getElementById('tab-android').onclick = () => show('android');
+  if (/android|silk|kindle/i.test(navigator.userAgent)) show('android');
+</script>
+</body>
+</html>
