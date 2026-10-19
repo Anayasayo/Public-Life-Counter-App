@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <!-- No pinch or double-tap zoom: every tap on a tile is a life change. viewport-fit lets the app use the notch area. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <title>3DPG Life Counter</title>
+    <meta name="description" content="Free Magic: The Gathering life counter by 3D Printed Games. Works offline." />
+    <meta name="theme-color" content="#141414" />
+
+    <!-- Installable app ("Add to Home Screen"). Paths are relative so the app works from any folder. -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Life Counter" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      /* These styles make the body full-height */
+      html,
+      body {
+        height: 100%;
+        background: #141414;
+      }
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
+        /* Feel like an app: no pull-to-refresh, text selection, long-press menus or tap flashes. */
+        overscroll-behavior: none;
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+      input,
+      textarea {
+        -webkit-user-select: text;
+        user-select: text;
+      }
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+    </style>
+
+    <script>
+      // Offline support: the service worker caches the app after the first visit.
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('sw.js').catch(function () {});
+        });
+      }
+    </script>
+  <meta name="theme-color" content="#141414">
+<link rel="icon" href="/Public-Life-Counter-App/play/favicon.ico"/></head>
+
+  <body>
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+    <!-- The root element for your Expo app. -->
+    <div id="root"></div>
+  <script src="/Public-Life-Counter-App/play/_expo/static/js/web/__expo-metro-runtime-8c088df87a31e4e6accd81c554ec290d.js" defer></script><script src="/Public-Life-Counter-App/play/_expo/static/js/web/__common-db12dcd1611b7d1e06165998eb2d8dbf.js" defer></script><script src="/Public-Life-Counter-App/play/_expo/static/js/web/entry-01c07de1f088714fc6f556ebbc574344.js" defer></script>
+</body>
+</html>
